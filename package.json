@@ -28,8 +28,6 @@
     "@types/react-dom": "latest",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "autoprefixer": "latest",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "eslint-config-prettier": "^9.0.0",
