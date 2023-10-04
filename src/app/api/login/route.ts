@@ -1,3 +1,4 @@
+import { signJwtAccessToken } from '@/lib/jwt';
 import prisma from '@/lib/prisma';
 import bcrypt from 'bcrypt';
 
@@ -17,7 +18,12 @@ export async function POST(request: Request) {
   if (user && (await bcrypt.compare(body.password, user.password))) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password, ...rest } = user;
-    return new Response(JSON.stringify(rest));
+    const accessToken = signJwtAccessToken(rest);
+    const result = {
+      ...rest,
+      accessToken,
+    };
+    return new Response(JSON.stringify(result));
   } else {
     return new Response(JSON.stringify(null));
   }
