@@ -1,3 +1,42 @@
+import NextAuth from 'next-auth';
+import GoogleProvider from 'next-auth/providers/google';
+
+const handler = NextAuth({
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    }),
+  ],
+  callbacks: {
+    async signIn({ user }) {
+      const res = await fetch('http://localhost:3000/api/loggingInfo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          image: user.image,
+        }),
+      });
+
+      if (res) {
+        return true;
+      } else {
+        // Return false to display a default error message
+        return false;
+        // Or you can return a URL to redirect to:
+        // return '/unauthorized'
+      }
+    },
+  },
+});
+
+export { handler as GET, handler as POST };
+
 /* import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
@@ -44,17 +83,10 @@ export { handler as GET, handler as POST }; */
 
 //export default NextAuth(authOptions)
 
-import NextAuth from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google';
-import CredentialsProvider from 'next-auth/providers/credentials';
+//export default NextAuth(authOptions)
 
-const handler = NextAuth({
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-    }),
-    CredentialsProvider({
+/* 
+ CredentialsProvider({
       name: 'Credentials',
       credentials: {
         username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
@@ -96,7 +128,5 @@ const handler = NextAuth({
     },
   },
   secret: process.env.SECRET_KEY,
-});
 
-export { handler as GET, handler as POST };
-//export default NextAuth(authOptions)
+*/
