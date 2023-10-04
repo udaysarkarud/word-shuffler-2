@@ -1,12 +1,26 @@
 'use client';
-import { signIn } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 const SignInButton = () => {
+  const { data: session } = useSession();
+  if (session && session.user) {
+    return (
+      <div className="flex gap-4 ml-auto place-items-center">
+        <p>{session.user.name}</p>
+        <button
+          onClick={() => signOut()}
+          className="bg-slate-900 text-white px-6 py-2 rounded-md"
+        >
+          Sing Out
+        </button>
+      </div>
+    );
+  }
   return (
     <button
-      onClick={() => signIn('google')}
-      className="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-lg inline-flex items-center"
+      onClick={() => signIn()}
+      className="bg-slate-900 text-white px-6 py-2 rounded-md"
     >
-      Sign in with Google
+      Sing In
     </button>
   );
 };

@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NextAuthProvider>
-          <div className="max-w-3xl mx-auto">
+          <div className="">
             <Navbar />
             {children}
           </div>

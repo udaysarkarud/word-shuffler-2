@@ -1,29 +1,22 @@
 'use client';
 import Link from 'next/link';
-import { signIn, signOut, useSession } from 'next-auth/react';
+import SignInButton from '../SignInButton/SignInButton';
 
 const Navbar = () => {
-  const { status } = useSession();
   return (
     <div className="p-4 flex justify-between items-center shadow-md">
-      <Link className="font-bold text-lg text-blue-700" href={'/'}>
-        wordShuffler
-      </Link>
-      {status === 'authenticated' ? (
-        <button
-          onClick={() => signOut()}
-          className="bg-slate-900 text-white px-6 py-2 rounded-md"
+      <div>
+        <Link className="p-2 transition-colors hover:text-blue-500" href={'/'}>
+          Home Page
+        </Link>
+        <Link
+          className="p-2 transition-colors hover:text-blue-500"
+          href={'/UserPost'}
         >
-          Sing Out
-        </button>
-      ) : (
-        <button
-          onClick={() => signIn('google')}
-          className="bg-slate-900 text-white px-6 py-2 rounded-md"
-        >
-          Sing In
-        </button>
-      )}
+          User Post Page
+        </Link>
+      </div>
+      <SignInButton />
     </div>
   );
 };
