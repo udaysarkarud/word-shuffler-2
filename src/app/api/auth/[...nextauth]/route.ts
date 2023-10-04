@@ -38,6 +38,7 @@ const handler = NextAuth({
       },
     }),
   ],
+  session: {},
 });
 
 export { handler as GET, handler as POST };

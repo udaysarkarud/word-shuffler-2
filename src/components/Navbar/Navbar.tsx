@@ -11,7 +11,7 @@ const Navbar = () => {
         </Link>
         <Link
           className="p-2 transition-colors hover:text-blue-500"
-          href={'/UserPost'}
+          href={'/userpost'}
         >
           User Post Page
         </Link>
