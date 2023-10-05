@@ -1,21 +1,33 @@
 import prisma from '@/lib/prisma';
-import bcrypt from 'bcrypt';
+
 interface RequestBody {
-  name: String;
-  email: String;
-  password: String;
+  id: string;
+  name: string;
+  email: string;
+  image: string;
 }
+
 export async function POST(request: Request) {
   const body: RequestBody = await request.json();
   const user = await prisma.user.create({
     data: {
+      googleId: body.id as string,
       name: body.name as string,
       email: body.email as string,
-      password: await bcrypt.hash(body.password as string, 10),
+      image: body.image as string,
     },
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { password, ...rest } = user;
-  return new Response(JSON.stringify(rest));
+
+  if (user) {
+    return new Response(JSON.stringify(true));
+  } else {
+    return new Response(JSON.stringify(null));
+  }
 }
+
+/* 
+
+
+*/
