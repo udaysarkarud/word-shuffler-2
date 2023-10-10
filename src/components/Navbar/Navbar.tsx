@@ -1,21 +1,11 @@
 'use client';
-import Link from 'next/link';
-import SignInButton from '../SignInButton/SignInButton';
+/* import Link from 'next/link';
+import SignInButton from '../SignInButton/SignInButton'; */
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
-      <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">WordShuffler</a>
-      </div>
+    <div className="navbar bg-base-100 flex justify-end">
       <div className="flex-none gap-5">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered w-24 md:w-auto"
-          />
-        </div>
         <div className="form-control">
           <p>USerName</p>
           <p>01/10/2023</p>

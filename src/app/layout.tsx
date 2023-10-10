@@ -4,6 +4,7 @@ import './globals.css';
 
 import { Inter } from 'next/font/google';
 import { NextAuthProvider } from './Providers';
+import Sidebar from '@/components/Sidebar/Sidebar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,8 +18,13 @@ export default function RootLayout({
       <body className={inter.className}>
         <NextAuthProvider>
           <div className="">
-            <Navbar />
-            {children}
+            <div className="flex">
+              <Sidebar />
+              <div>
+                <Navbar />
+                <div className="bg-white p-4">{children}</div>
+              </div>
+            </div>
           </div>
         </NextAuthProvider>
       </body>
