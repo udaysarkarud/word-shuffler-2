@@ -7,13 +7,6 @@ const Navbar = () => {
     <div className="navbar bg-base-100 flex justify-end">
       <div className="flex-none gap-5">
         <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered w-24 md:w-auto"
-          />
-        </div>
-        <div className="form-control">
           <p>USerName</p>
           <p>01/10/2023</p>
         </div>
