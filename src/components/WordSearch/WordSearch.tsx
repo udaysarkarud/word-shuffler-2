@@ -13,7 +13,7 @@ const WordSearch = () => {
         <div className="flex justify-center">
           <input
             type="text"
-            placeholder="Type here"
+            placeholder="Type your word here"
             className="input input-bordered w-full max-w-2xl"
           />
         </div>
