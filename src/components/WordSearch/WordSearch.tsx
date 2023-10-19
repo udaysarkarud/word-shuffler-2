@@ -1,15 +1,15 @@
 'use client';
 
 const WordSearch = () => {
-  const getWordDetails = async (e) => {
+  /*   const getWordDetails = async (e) => {
     e.preventDefault();
 
     console.log(e.target.word.value);
     e.target.reset();
-  };
+  }; */
   return (
     <div className="">
-      <form onSubmit={getWordDetails}>
+      <form /* onSubmit={getWordDetails} */>
         <div className="flex justify-center">
           <input
             type="text"
