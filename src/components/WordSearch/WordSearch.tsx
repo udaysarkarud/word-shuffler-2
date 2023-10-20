@@ -1,6 +1,10 @@
 'use client';
-
-const WordSearch = () => {
+interface WordSearchProps {
+  title?: string;
+}
+const WordSearch: React.FC<WordSearchProps> = ({
+  title = 'Type Your Word',
+}) => {
   /*   const getWordDetails = async (e) => {
     e.preventDefault();
 
@@ -13,7 +17,7 @@ const WordSearch = () => {
         <div className="flex justify-center">
           <input
             type="text"
-            placeholder="Type your word here"
+            placeholder={title}
             className="input input-bordered w-full max-w-2xl"
           />
         </div>
