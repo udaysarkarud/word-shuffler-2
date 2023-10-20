@@ -6,9 +6,15 @@ const listofwords = () => {
   return (
     <div>
       <WordSearch title={'Search Your Word'} />
-      <div className="mt-10 flex flex-col flex-wrap sm:flex-row gap-3">
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 masonry">
         {/* cards */}
 
+        <WordCard />
+        <WordCard />
+        <WordCard />
+        <WordCard />
+        <WordCard />
+        <WordCard />
         <WordCard />
         <WordCard />
         <WordCard />
