@@ -1,3 +1,4 @@
+import Pagination from '@/components/Pagination/Pagination';
 import WordCard from '@/components/WordCard/WordCard';
 import WordSearch from '@/components/WordSearch/WordSearch';
 import React from 'react';
@@ -20,6 +21,7 @@ const listofwords = () => {
         <WordCard />
         <WordCard />
       </div>
+      <Pagination />
     </div>
   );
 };

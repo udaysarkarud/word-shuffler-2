@@ -14,7 +14,7 @@ const WordCard = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum odio
           molestiae ea corrupti eligendi aspernatur quis
         </p>
-        <p>
+        <p className="hidden sm:block">
           <span className="badge badge-neutral mx-1 hover:bg-blue-500">
             existence
           </span>
