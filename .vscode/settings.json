@@ -1,3 +1,7 @@
 {
-  "cSpell.words": ["জীবন"]
+  "cSpell.words": [
+    "জীবন"
+  ],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
