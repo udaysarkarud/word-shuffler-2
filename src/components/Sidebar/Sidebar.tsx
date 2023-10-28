@@ -44,10 +44,8 @@ const Sidebar = () => {
               <li key={index}>
                 <Link
                   href={Menu.navLocation}
-                  className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-white text-sm items-center gap-x-4 
-              ${Menu.gap ? 'mt-9' : 'mt-2'} ${
-                index === 0 && 'bg-light-white'
-              } `}
+                  className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white mt-2 text-white text-sm items-center gap-x-4 
+               `}
                 >
                   <img src={`./assets/${Menu.src}.png`} alt={Menu.title} />
                   <span
