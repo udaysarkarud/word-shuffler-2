@@ -30,11 +30,31 @@ const WordSearchResult = () => {
           </button>
         </div>
         {/* example */}
-        <div>
-          <p className="text-slate-400">Example :</p>
+        <div className="flex flex-col gap-5">
           <p>
-            Having experienced both, the vampire decided that he preferred
-            (un)death to life. He gave up on life.
+            <span className="text-slate-400">Noun :</span> Having experienced
+            both, the vampire decided that he preferred (un)death to life. He
+            gave up on life.
+          </p>
+          <p>
+            <span className="text-slate-400">Pronoun :</span> Having experienced
+            both, the vampire decided that he preferred (un)death to life. He
+            gave up on life.
+          </p>
+          <p>
+            <span className="text-slate-400">Verb :</span> Having experienced
+            both, the vampire decided that he preferred (un)death to life. He
+            gave up on life.
+          </p>
+          <p>
+            <span className="text-slate-400">Adjective :</span> Having
+            experienced both, the vampire decided that he preferred (un)death to
+            life. He gave up on life.
+          </p>
+          <p>
+            <span className="text-slate-400">Adverb :</span> Having experienced
+            both, the vampire decided that he preferred (un)death to life. He
+            gave up on life.
           </p>
         </div>
         {/* Synonyms */}
