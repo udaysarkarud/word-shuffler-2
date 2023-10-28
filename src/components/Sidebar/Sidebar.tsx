@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
@@ -28,12 +29,15 @@ const Sidebar = () => {
             onClick={() => setOpen(!open)}
           /> */}
           <div className="flex gap-x-4 items-center">
-            <img
+            <Image
+              width={500}
+              height={500}
               onClick={() => setOpen(!open)}
-              src="./assets/logo.png"
+              src="/assets/logo.png"
               className={`cursor-pointer duration-500 ${
                 open && 'rotate-[360deg]'
               }`}
+              alt="Logo"
             />
             <h1
               className={`text-white origin-left font-medium text-xl duration-200 ${
