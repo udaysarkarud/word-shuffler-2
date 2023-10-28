@@ -1,17 +1,15 @@
 'use client';
-
+import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const Menus = [
-    { title: 'Dashboard', src: 'Chart_fill' },
-    { title: 'Inbox', src: 'Chat' },
-    { title: 'Accounts', src: 'User', gap: true },
-    { title: 'Schedule ', src: 'Calendar' },
-    { title: 'Search', src: 'Search' },
-    { title: 'Analytics', src: 'Chart' },
-    { title: 'Files ', src: 'Folder', gap: true },
-    { title: 'Setting', src: 'Setting' },
+    { title: 'Search', src: 'Search', navLocation: '/' },
+    { title: 'Saved Words', src: 'Folder', navLocation: '/listofwords' },
+    { title: 'Random Quiz', src: 'User', navLocation: '/' },
+    { title: 'Setting', src: 'Setting', navLocation: '/' },
+    { title: 'Analytics', src: 'Chart', navLocation: '/' },
   ];
   return (
     <div>
@@ -21,19 +19,16 @@ const Sidebar = () => {
             open ? 'w-52' : 'w-20 '
           }  h-screen p-3  pt- relative duration-300`}
         >
-          {/* <img
-            src="./assets/control.png"
-            className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
-           border-2 rounded-full  ${!open && 'rotate-180'}`}
-            onClick={() => setOpen(!open)}
-          /> */}
           <div className="flex gap-x-4 items-center">
-            <img
+            <Image
+              width={500}
+              height={500}
               onClick={() => setOpen(!open)}
-              src="./assets/logo.png"
+              src="/assets/logo.png"
               className={`cursor-pointer duration-500 ${
                 open && 'rotate-[360deg]'
               }`}
+              alt="Logo"
             />
             <h1
               className={`text-white origin-left font-medium text-xl duration-200 ${
@@ -45,19 +40,19 @@ const Sidebar = () => {
           </div>
           <ul className="pt-6">
             {Menus.map((Menu, index) => (
-              <li
-                key={index}
-                className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-              ${Menu.gap ? 'mt-9' : 'mt-2'} ${
-                index === 0 && 'bg-light-white'
-              } `}
-              >
-                <img src={`./assets/${Menu.src}.png`} />
-                <span
-                  className={`${!open && 'hidden'} origin-left duration-200`}
+              <li key={index}>
+                <Link
+                  href={Menu.navLocation}
+                  className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white mt-2 text-white text-sm items-center gap-x-4 
+               `}
                 >
-                  {Menu.title}
-                </span>
+                  <img src={`./assets/${Menu.src}.png`} alt={Menu.title} />
+                  <span
+                    className={`${!open && 'hidden'} origin-left duration-200`}
+                  >
+                    {Menu.title}
+                  </span>
+                </Link>
               </li>
             ))}
           </ul>
