@@ -1,6 +1,11 @@
 'use client';
 
+import { useState } from 'react';
+import WordSearchResult from '../WordSearchResult/WordSearchResult';
+
 const WordSearch = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [result, setResult] = useState(true);
   /*   const getWordDetails = async (e) => {
     e.preventDefault();
 
@@ -18,6 +23,7 @@ const WordSearch = () => {
           />
         </div>
       </form>
+      {result && <WordSearchResult />}
     </div>
   );
 };
